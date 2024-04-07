@@ -1,0 +1,84 @@
+.EditProduct {
+    display: grid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    place-items: center;
+    z-index: 10;
+
+
+    .EditProductInfo {
+        padding: 30px;
+        background-color: #fff;
+        color: black;
+        position: relative;
+        border-radius: 10px;
+    }
+}
+.form{
+    display: grid;
+    grid-template-columns: 1fr ;
+    gap: 10px;
+    input{
+        padding: 10px;
+        border-radius: 10px;
+        border-radius: none;
+        outline: none;
+        border: 1px solid black;
+
+    }
+    button{
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    textarea{
+        padding: 10px;
+        border-radius: none;
+        border: 1px solid black;    
+        outline: none;
+        border-radius: 10px;
+
+    }
+    label{
+        display: flex;
+        gap: 10px;
+    }
+    .ImageList{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        div{
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+            background-color: black;
+            border-radius: 10px;
+        svg {
+            position: absolute;
+            z-index: 111;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+            color: #fff;    
+        }
+            img{
+                opacity: 0.6    ;
+                width: 100%;
+                height: 100%;
+                
+                object-fit: cover;
+            }
+        }
+    }
+}
+.BIX{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 40px;
+    cursor: pointer;    
+}

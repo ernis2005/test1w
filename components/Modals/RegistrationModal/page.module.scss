@@ -17,6 +17,7 @@
         background-color: #fff;
         padding: 30px;
         border-radius: 10px;
+        position: relative;
         width: 300px;
         justify-content: center;
         justify-items: center;
@@ -43,4 +44,12 @@
         }
 
     }
+}
+
+.BIX{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 40px;
+    cursor: pointer;    
 }

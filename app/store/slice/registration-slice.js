@@ -12,7 +12,7 @@ export const registration = createAsyncThunk(
         const formData = new FormData()
         formData.append("files", data.image)
         try {
-          const postImage  =    await axios.post(`${Api}upload`, formData, {
+          const postImage  =   await axios.post(`${Api}upload`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Accept-Language': 'ru',
@@ -26,10 +26,9 @@ export const registration = createAsyncThunk(
                         token: data.token
                     }
                 }
-                
                 return newData
             })
-           await  axios({
+        await  axios({
                 method: "post",
                 url: `${Api}user-lists`,
                 data: postImage,

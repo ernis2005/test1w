@@ -4,9 +4,15 @@ import { Api } from "../../api";
 
 export const getProducts = createAsyncThunk(
   "products/getProducts",
-  async () => {
+  async  (status) => {
     const { data } = await axios.get(`${Api}products?populate=*`);
-    return data;
+    const filterData = await data.data.filter((res) => res.attributes.isPublish == true);
+    
+    filterData.sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt));
+    const formattedData = {
+      data: filterData,
+    };
+    return formattedData;
   }
 );
 

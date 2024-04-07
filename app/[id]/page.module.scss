@@ -2,15 +2,14 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
-
     .Info {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
-
         .HoomImage {
-            display: grid;
+            display: flex;
             gap: 10px;
+            flex-direction: column;
             .mainImage {
                 position: relative;
                 height: 400px;
@@ -37,7 +36,6 @@
                 }
             }
         }
-
         .description{
             display: flex;
             flex-direction: column;
@@ -53,11 +51,9 @@
                     position: relative;
                 }
             }   
-          
         }
         @media screen and (max-width:736px) {
             grid-template-columns: 1fr ;
         }
-
     }
 }

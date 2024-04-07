@@ -12,7 +12,6 @@ export default function Page() {
   const { products, error, status } = useSelector((state) => state.product);
   useEffect(() => {
     dispatch(getProducts());
- 
   }, []);
   if (status === "loading") {
     return <p>Loading...</p>;
@@ -20,7 +19,8 @@ export default function Page() {
   return (
     status === "success" && (
       <div>
-        <div className={s.CardList}>
+        <div className='CardList'>
+         {products?.data.length == 0 && <p className={s.P}>Товаров нет</p>}
           {products?.data.map((product, i) => (
             <CardProduct key={i} product={product} />
           ))}

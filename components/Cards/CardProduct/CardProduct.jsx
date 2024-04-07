@@ -8,12 +8,13 @@ function CardProduct({ product }) {
   return (
     <div className={s.Card}>
       <Link  href={`/${product.id}`} className={s.Image}>
-        <Image
+        {res?.image?.data?.length > 0 && <Image
           src={res?.image?.data[0].attributes.url}
           alt="Picture of the author"
           objectFit="cover"
           layout="fill"
-        />
+        />} 
+     
       </Link>
       <span>
       <p>{res.name.slice(0, 15)}</p>
