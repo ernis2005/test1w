@@ -1,0 +1,24 @@
+.Card{
+    display: grid;
+    gap: 10px;
+    .Image {
+        position: relative;
+        width: 100% ;
+        border-radius: 10px;
+        overflow: hidden;       
+        height: 200px;      
+        cursor: pointer;
+    }
+    span {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between  ;
+        p{
+            font-size: 20px;
+            font-weight: 500;
+            text-decoration: none;
+            color: black;       
+        }
+
+    }
+}
