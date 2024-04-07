@@ -6,7 +6,7 @@ const nextConfig = {
     "res.cloudinary.com",
     "asset.cloudinary.com" ,
     ],
-  },
+  },  
   reactStrictMode: false
 };  
 

@@ -6,13 +6,14 @@ import { useEffect } from "react";
 import CardProduct from "../components/Cards/CardProduct/CardProduct";
 import s from "./page.module.scss";
 import { getProducts } from "./store/slice/product-list-slice";
+
 export default function Page() {
   const dispatch = useDispatch();
   const { products, error, status } = useSelector((state) => state.product);
   useEffect(() => {
     dispatch(getProducts());
+ 
   }, []);
-  console.log(products);
   if (status === "loading") {
     return <p>Loading...</p>;
   }

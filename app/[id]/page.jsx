@@ -12,7 +12,6 @@ const page =  ({params:{ id }}) => {
 
 const {product , status ,error } = useSelector((state) => state.productSliceFull)
  const res = product?.attributes
- console.log(product ,error ,status   ,'asdsdsad');
  useEffect(() => {
   dispatch(getProductId(id))
 },[])

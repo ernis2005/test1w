@@ -8,7 +8,7 @@ export default function RootLayout({ children }) {
       <ProviderRedux>
         <body>
           <Haeder />
-          <main>{children} </main>
+          <main>{children}</main>
         </body>
       </ProviderRedux>
     </html>

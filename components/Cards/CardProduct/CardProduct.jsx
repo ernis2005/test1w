@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 function CardProduct({ product }) {
   const res = product?.attributes;
-  console.log(product, "test");
 
   return (
     <div className={s.Card}>

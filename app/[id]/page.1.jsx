@@ -12,7 +12,6 @@ export const page = ({ params: { id } }) => {
     (state) => state.productSliceFull
   );
   const res = product?.attributes;
-  console.log(product, error, status, "asdsdsad");
   useEffect(() => {
     dispatch(getProductId(id));
   }, []);
