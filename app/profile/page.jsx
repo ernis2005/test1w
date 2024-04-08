@@ -27,10 +27,16 @@ function page() {
     const  handleDeleteUser = ()=> {
         localStorage.removeItem('token')
         router.push('/')
-        window.location.reload();
-            
+        window.location.reload()
         
     }
+
+    useEffect(() => {
+    
+        if (localStorage.getItem('token') == null) {
+            router.push('/')
+        }
+    }, [user])
     return (
         <div className={s.profile}>
             <div className={s.userInfo}>
@@ -68,7 +74,7 @@ function page() {
                         <p>Нет данных</p>
                     )}
                 </div>}
-                {editCard &&  <EditProduct productStatus={productStatus} setEditCard={setEditCard}  editCard={editCard} CardEditId={CardEditId}/> }
+                {editCard &&  <EditProduct setNavBarId={setNavBarId} productStatus={productStatus} setEditCard={setEditCard}  editCard={editCard} CardEditId={CardEditId}/> }
                 {navBarId == 3 && <CreateProduct />}
             </div>
         </div>

@@ -39,7 +39,7 @@ export const createProduct = createAsyncThunk(
 )
 export const  editProductList = createAsyncThunk(
     "editProductList",
-    async (data, { rejectWithValue }) => {
+    async (data, { rejectWithValue , dispatch }) => {
         try {
                 await axios.put(`${Api}products/${data[1]}`, {
                     data: {
@@ -49,6 +49,7 @@ export const  editProductList = createAsyncThunk(
                         isPublish: data[0].published
                     }
                 })
+               
         } catch (error) {
             return rejectWithValue(error.response.data)
         }

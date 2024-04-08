@@ -11,7 +11,7 @@ import { Api } from '../../app/api';
 import { editProductList } from '../../app/store/slice/create-product-slice';
 import { BiX } from 'react-icons/bi';
 import { getProfile } from '../../app/store/slice/profile-slice';
-function EditProduct({ setEditCard,productStatus, editCard, CardEditId }) {
+function EditProduct({ setEditCard,productStatus,setNavBarId, editCard, CardEditId }) {
     const { register, handleSubmit, watch, formState: { errors } ,reset } = useForm();
     const [isLoading, setIsLoading] = useState(false);
     const { product, } = useSelector((state) => state.productSliceFull)
@@ -36,7 +36,11 @@ function EditProduct({ setEditCard,productStatus, editCard, CardEditId }) {
         const datas = [data, CardEditId,]
         dispatch(editProductList(datas))
         setEditCard(false)
-        dispatch(getProfile(productStatus))
+        setTimeout(() => {
+            window.location.reload();
+        },1000)
+        
+    
     }
 
 

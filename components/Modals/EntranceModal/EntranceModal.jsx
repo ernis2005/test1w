@@ -24,7 +24,7 @@ const EntranceModal = ({setModalOpen}) => {
     }
 return (
     <div className={s.EntranceModal}>
-    <div>
+    <div className={s.Info}>
     <p>Вход</p>
     
     <form onSubmit={handleSubmit(onSubmit)}>
