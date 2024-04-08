@@ -7,10 +7,13 @@ import RegistrationModal from '../Modals/RegistrationModal/RegistrationModal'
 import { useDispatch, useSelector } from "react-redux";
 import { getUserList } from "../../app/store/slice/user-list";
 import { getUser } from "../../app/store/slice/user-slice";
+import EntranceModal from '../Modals/EntranceModal/EntranceModal'
 function Haeder() {
   const { user, status, error } = useSelector((state) => state.user);
-  console.log(user);
-  const [registration, setRegistration] = React.useState( );
+
+  const [registration, setRegistration] = React.useState(false);
+  const [login, setLogin] = React.useState(false);
+
   const dispatch = useDispatch()
   useEffect(() => {
     const userToken = localStorage.getItem('token')
@@ -29,10 +32,11 @@ function Haeder() {
       {user ? <Link href="/profile" className={s.Name} >
         {user?.name}
       </Link> : <ul>
-        <li>Вход</li>
+        <li onClick={() => setLogin(true)}>Вход</li>
         <li onClick={() => setRegistration(true)} >Регистрация</li>
       </ul>}
       {registration == true && <RegistrationModal setModalOpen={setRegistration} />}
+      {login == true && <EntranceModal setModalOpen={setLogin} />}
     </nav>
   );
 }

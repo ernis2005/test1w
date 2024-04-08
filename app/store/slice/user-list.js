@@ -8,7 +8,6 @@ export const getUserList = createAsyncThunk(
     async () => {
         try {
             const { data } = await axios.get(`${Api}user-lists`);
-           
             return data;
         } catch (error) {
             console.log(error);

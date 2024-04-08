@@ -9,6 +9,7 @@ import { getProfile } from '../../app/store/slice/profile-slice'
 import CardProduct from '../../components/Cards/CardProduct/CardProduct'
 import { FiEdit2 } from 'react-icons/fi';
 import EditProduct from '../../components/EditProduct/EditProduct';
+import { useRouter } from 'next/navigation';
 
 function page() {
     const [navBarId, setNavBarId] = React.useState(1)
@@ -19,10 +20,17 @@ function page() {
 
     const dispatch = useDispatch();
     const { data, status } = useSelector((state) => state.profileSlice);
-    console.log(data, 'asdsadsad');
+    const router = useRouter()
     useEffect(() => {
         dispatch(getProfile(productStatus))
     }, [productStatus])
+    const  handleDeleteUser = ()=> {
+        localStorage.removeItem('token')
+        router.push('/')
+        window.location.reload();
+            
+        
+    }
     return (
         <div className={s.profile}>
             <div className={s.userInfo}>
@@ -33,6 +41,7 @@ function page() {
                     <p>это токен нужен для входа в аккаунт </p>
                     <p> {user?.token}</p>
                 </span>
+                <button onClick={()=>handleDeleteUser()}>Вход</button>
             </div>
             <div className={s.navBar}>
                 <ul>
@@ -59,7 +68,7 @@ function page() {
                         <p>Нет данных</p>
                     )}
                 </div>}
-                {editCard &&  <EditProduct setEditCard={setEditCard}  editCard={editCard} CardEditId={CardEditId}/> }
+                {editCard &&  <EditProduct productStatus={productStatus} setEditCard={setEditCard}  editCard={editCard} CardEditId={CardEditId}/> }
                 {navBarId == 3 && <CreateProduct />}
             </div>
         </div>

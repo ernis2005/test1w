@@ -7,7 +7,7 @@ export const getProfile = createAsyncThunk(
     "profile/getProfile",
     async (status) => {
         try {
-            console.log(status, "status");
+    
             const { data } = await axios.get(`${Api}products?populate=*`);
             const token = localStorage.getItem("token");
             const filterDataUserCards = await data.data.filter((res) => res.attributes.userToken == token);
@@ -18,7 +18,7 @@ export const getProfile = createAsyncThunk(
             };
             return formattedData;
         } catch (error) {
-            console.log(error);
+          
         }
     }
 )

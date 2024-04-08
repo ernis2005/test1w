@@ -39,7 +39,6 @@ export const registration = createAsyncThunk(
             },).then(res => {
                 localStorage.setItem('token',data.token)
             })
-            console.log(test ,"adasdasd");
         } catch (error) {
             return rejectWithValue(error.response.data)
         }

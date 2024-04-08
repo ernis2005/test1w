@@ -10,7 +10,8 @@ import axios from 'axios'
 import { Api } from '../../app/api';
 import { editProductList } from '../../app/store/slice/create-product-slice';
 import { BiX } from 'react-icons/bi';
-function EditProduct({ setEditCard, editCard, CardEditId }) {
+import { getProfile } from '../../app/store/slice/profile-slice';
+function EditProduct({ setEditCard,productStatus, editCard, CardEditId }) {
     const { register, handleSubmit, watch, formState: { errors } ,reset } = useForm();
     const [isLoading, setIsLoading] = useState(false);
     const { product, } = useSelector((state) => state.productSliceFull)
@@ -34,16 +35,11 @@ function EditProduct({ setEditCard, editCard, CardEditId }) {
         }
         const datas = [data, CardEditId,]
         dispatch(editProductList(datas))
+        setEditCard(false)
+        dispatch(getProfile(productStatus))
     }
 
-    useEffect(() => {
-        if (editCard === true) {
-            document.body.style.overflow = "hidden";
-            window.scrollTo(0, 0);
-        } else {
-            document.body.style.overflow = "";
-        }
-    });
+
 
     return (
         <div className={s.EditProduct}>
@@ -66,7 +62,7 @@ function EditProduct({ setEditCard, editCard, CardEditId }) {
                     <label>
                         <input type="checkbox"  {...register("published")} />  <p> "нужно выбрать нужный статус" опубликовать</p>
                     </label>
-                    <button style={{ cursor: 'pointer' }} type="submit" >Добавить продукт</button>
+                    <button style={{ cursor: 'pointer' }} type="submit" >Save</button>
                 </form>
                 f
             </div>

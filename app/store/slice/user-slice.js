@@ -18,7 +18,7 @@ export const getUser = createAsyncThunk(
                     attributes
                     .token == userToken;
             });
-            console.log(filterData[0].attributes    , 'test1 ');
+        
             return filterData[0].attributes;
         } catch (error) {
             console.log(error);

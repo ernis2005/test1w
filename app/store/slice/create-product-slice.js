@@ -19,7 +19,7 @@ export const createProduct = createAsyncThunk(
                     'Accept-Language': 'ru',
                 }
             })
-            console.log(postImage.data, "adasdasd");
+      
             await axios.post(`${Api}products`, {
                 data: {
                     name: data[0].name,

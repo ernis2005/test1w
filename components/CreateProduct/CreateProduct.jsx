@@ -16,8 +16,9 @@ const CreateProduct = () => {
     const { status, data, error, } = useSelector((state) => state.createProductSlice);
     const [isLoading, setIsLoading] = useState(false);
     const dispatch = useDispatch()
+
     const onSubmit = (data) => {
-        console.log('onSubmit');
+      
         const userInfo = {
             userLogo: user?.logo.data.attributes.url,
             userNmae: user?.name,

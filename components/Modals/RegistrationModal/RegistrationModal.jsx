@@ -31,6 +31,8 @@ function RegistrationModal({ setModalOpen }) {
     useEffect(() => {
         if (isRegistered == true) {
             setModalOpen(false)
+            window.location.reload();
+            
         }
     }, [isRegistered]);
     return (
