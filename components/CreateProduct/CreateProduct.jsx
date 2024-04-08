@@ -56,7 +56,7 @@ const CreateProduct = () => {
             <textarea type="text" placeholder='Description' {...register("description", { required: true })} />
             <input type="number" placeholder='Price' {...register("price", { required: true })} />
 
-            <p>рекомендую отправлять только две картинки мой сервер может упасть у меня бесплатный сервер </p>
+            <p>рекомендую отправлять только две три картинки </p>
             <input onChange={(e) => {
                 handleFileChange(e);
             }} multiple type="file"   max={2} accept=".jpg, .jpeg, .png, " placeholder='image' />

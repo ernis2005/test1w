@@ -66,6 +66,11 @@
 }
 
 .CardUser{
+    span {
+        display: flex;
+        justify-content: space-between;
+        
+    }
     .FiEdit2{
         cursor: pointer ;
         font-size: 25px;

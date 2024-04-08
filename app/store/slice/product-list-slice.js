@@ -4,8 +4,8 @@ import { Api } from "../../api";
 
 export const getProducts = createAsyncThunk(
   "products/getProducts",
-  async  (status) => {
-    const { data } = await axios.get(`${Api}products?populate=*`);
+  async  (pageSize) => {
+    const { data } = await axios.get(`${Api}products?populate=*&pagination[pageSize]=${pageSize}`);
     const filterData = await data.data.filter((res) => res.attributes.isPublish == true);
     
     filterData.sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt));
