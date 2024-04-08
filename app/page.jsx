@@ -10,7 +10,7 @@ import { getProducts } from "./store/slice/product-list-slice";
 export default function Page() {
   const dispatch = useDispatch();
   const { products, error, status } = useSelector((state) => state.product);
-  const [pageSize, setPageSize] = useState(5);
+  const [pageSize, setPageSize] = useState(8);
   useEffect(() => {
     dispatch(getProducts(pageSize));
   }, [pageSize]);
@@ -25,8 +25,8 @@ export default function Page() {
           onChange={(e) => setPageSize(e.target.value)}
           style={{ marginBottom: '20px', marginTop: '20px' }}
         >
-          <option value={5}>5</option>
-          <option value={10}>10</option>
+          <option value={8}>8</option>
+          <option value={16}>16</option>
           <option value={1000}>все</option>
         </select>
 
